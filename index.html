@@ -101,7 +101,6 @@
 
             <!-- Form Container -->
             <div id="form-container" class="bg-white p-6 md:p-12 rounded-xl shadow-2xl transition duration-500 opacity-50 pointer-events-none">
-                <p class="text-center text-red-500 mb-4 font-semibold text-lg" id="status-message"></p>
 
                 <form onsubmit="handleFormSubmit(event)" class="space-y-6">
                     
@@ -121,6 +120,12 @@
                     <div>
                         <label for="mobile" class="block text-lg font-medium text-gray-700 mb-2">Mobile Number (मोबाईल क्रमांक) <span class="text-red-500">*</span></label>
                         <input type="tel" id="mobile" name="mobile" placeholder="+91 98765 43210" class="form-input" required pattern="[0-9]{10,15}">
+                    </div>
+
+                    <!-- Alternate Mobile Number -->
+                    <div>
+                        <label for="alternateMobile" class="block text-lg font-medium text-gray-700 mb-2">Alternate Mobile Number (ऐच्छिक)</label>
+                        <input type="tel" id="alternateMobile" name="alternateMobile" placeholder="Alternate number (optional)" class="form-input" pattern="[0-9]{10,15}">
                     </div>
 
                     <!-- Age -->
@@ -148,12 +153,6 @@
                         <textarea id="careerGoals" name="careerGoals" placeholder="e.g., Become a software engineer, switch to data analytics, start freelancing, etc." class="form-input min-h-[100px]" required></textarea>
                     </div>
 
-                    <!-- Technology Interests -->
-                    <!-- <div>
-                        <label for="techInterests" class="block text-lg font-medium text-gray-700 mb-2">What IT domains or technologies are you most interested in learning? <span class="text-red-500">*</span></label>
-                        <textarea id="techInterests" name="techInterests" placeholder="List the technologies or domains you're interested in" class="form-input" required></textarea>
-                    </div> -->
-
                     <!-- Career Challenges -->
                     <div>
                         <label for="challenges" class="block text-lg font-medium text-gray-700 mb-2">Do you have any specific challenges or concerns in achieving your career goals? (आपल्या करिअर उद्दिष्टांपर्यंत पोहोचण्यात काही अडचणी किंवा चिंता आहेत का?) <span class="text-red-500">*</span></label>
@@ -177,16 +176,17 @@
                         <label for="consultationType" class="block text-lg font-medium text-gray-700 mb-2">Consultation Type (आमच्या सहाय्याचे प्रकार) <span class="text-red-500">*</span></label>
                         <select id="consultationType" name="consultationType" class="form-input" required>
                             <option value="">Select consultation type</option>
-                            <option value="webinar">Webinar (₹199)</option>
-                            <option value="oncall">On Call (₹499)</option>
-                            <option value="personal">Personal Sessions (Custom Quote)</option>
+                            <option value="webinar (₹199)">Webinar (₹199)</option>
+                            <option value="On Call Discussion (₹499)">On Call Discussion (₹499)</option>
+                            <option value="personal">Personal Sessions</option>
+                            <option value="other">others</option>
                         </select>
                     </div>
 
-                    <!-- Specific Requirement -->
-                    <div>
+                    <!-- Specific Requirement (shown only for Personal Sessions) -->
+                    <div id="specificrequirement-container" class="hidden-field">
                         <label for="specificrequirement" class="block text-lg font-medium text-gray-700 mb-2">Give your specific requirement (आपली विशिष्ट गरज लिहा) <span class="text-red-500">*</span></label>
-                        <input type="specificrequirement" id="specificrequirement" name="specificrequirement" placeholder="(उदा. करिअर मार्गदर्शन, नोकरी शोध मदत, कोर्स सल्ला, रेझ्युमे सुधारणा इ.)" class="form-input" required min="18" max="100">
+                        <input type="specificrequirement" id="specificrequirement" name="specificrequirement" placeholder="(उदा. करिअर मार्गदर्शन, नोकरी शोध मदत, कोर्स सल्ला, रेझ्युमे सुधारणा इ.)" class="form-input" min="18" max="100">
                     </div>
 
                     <!-- Submit Button -->
@@ -201,6 +201,7 @@
                             </a>
                         </p>
                     </div>
+                    <p class="text-center text-red-500 mb-4 font-semibold text-lg" id="status-message"></p>
                 </form>
             </div>
             
@@ -263,54 +264,53 @@
         </div>
     </section>
 
-    <!-- Connect With Us (Arattai & WhatsApp) -->
-    <section id="whatsapp" class="py-16 bg-accent-color">
-        <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12 animate-fade-in">Connect With Us</h2>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-lg text-gray-700 mb-8">Join our community channels to get job alerts, event updates and exclusive mentor sessions.</p>
+    <!-- Connect With Us: Two cards (WhatsApp & Arattai) -->
+    <section id="connect" class="py-16 bg-accent-color">
+        <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-8 animate-fade-in">Connect With Us</h2>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg text-gray-700 mb-8">Join our channels for job alerts, events and mentor sessions.</p>
 
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <!-- 360 Techmentor Arattai Community -->
-                <a href="https://chat.arattai.in/groups/x43545f313238383631373235303436303731373836395f32303031393031373639322d47437c3031303131323034333135353137363134343836313138393930" target="_blank" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 shadow-md">
-                    <i data-lucide="users" class="w-5 h-5 mr-2"></i>
-                    360 Techmentor Arattai Community
-                </a>
+            <div class="connect-cards">
+                <!-- WhatsApp Card -->
+                <div class="connect-card">
+                    <div class="card-logo mb-4">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" onerror="this.style.display='none'" class="mx-auto">
+                        <!-- <i data-lucide="message-circle" class="w-10 h-10 text-green-600 mx-auto"></i> -->
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">360 Techmentor WhatsApp Channel</h3>
+                    <p class="text-sm text-gray-700 mb-4">Get channel updates and announcements directly on WhatsApp.</p>
+                    <a href="https://whatsapp.com/channel/0029Vb6up6AKGGGG0AJz5H2v" target="_blank" class="channel-btn btn-whatsapp pulse" aria-label="Join WhatsApp Channel">
+                        <!-- <i data-lucide="message-circle" class="w-5 h-5"></i> -->
+                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png?20220228223904" alt="WhatsApp" onerror="this.style.display='none'" class="mx-auto">
+                        <span>Join WhatsApp Channel</span>
+                    </a>
+                </div>
 
-                <!-- Arattai Job Alerts -->
-                <a href="https://chat.arattai.in/groups/z43545f313238383631373235303437323632313138335f32303031393031373639322d47437c3031303131353033303034323137363134353134393034323130" target="_blank" class="inline-flex items-center px-6 py-3 bg-yellow-600 text-white rounded-full hover:bg-yellow-700 transition duration-300 shadow-md">
-                    <i data-lucide="bell" class="w-5 h-5 mr-2"></i>
-                    Arattai Job Alerts
-                </a>
+                <!-- Arattai Card -->
+                <div class="connect-card">
+                    <div class="card-logo mb-3">
+                        <img src="https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/arattai-app-logo.png" alt="Arattai" onerror="this.style.display='none'" style="height: 120px; width: auto;" >
+                        <!-- <i data-lucide="users" class="w-10 h-10 text-blue-700 mx-auto"></i> -->
+                    </div>
+                    <!-- <h3 class="text-xl font-bold mb-2">Arattai Community</h3> -->
+                    <p class="text-sm text-gray-700 mb-4">Join the community or subscribe to job alerts.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <a href="https://chat.arattai.in/groups/x43545f313238383631373235303436303731373836395f32303031393031373639322d47437c3031303131323034333135353137363134343836313138393930" target="_blank" class="channel-btn btn-arattai" aria-label="Arattai Community">
+                            <!-- <i data-lucide="users" class="w-5 h-5"></i> -->
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Arattai_logo.png" alt="WhatsApp" onerror="this.style.display='none'" class="mx-auto">
 
-                <!-- 360 Techmentor WhatsApp Channel -->
-                <a href="https://whatsapp.com/channel/0029Vb6up6AKGGGG0AJz5H2v" target="_blank" class="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition duration-300 shadow-md">
-                    <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
-                    360 Techmentor WhatsApp Channel
-                </a>
+                            <span>360 Techmentor Arattai Community</span>
+                        </a>
+                        <a href="https://chat.arattai.in/groups/z43545f313238383631373235303437323632313138335f32303031393031373639322d47437c3031303131353033303034323137363134353134393034323130" target="_blank" class="channel-btn btn-arattai-alert" aria-label="Arattai Job Alerts">
+                            <!-- <i data-lucide="bell" class="w-5 h-5"></i> -->
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Arattai_logo.png" alt="WhatsApp" onerror="this.style.display='none'" class="mx-auto">
+                            <span>Arattai Job Alerts</span>
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            <!-- <p class="text-sm text-gray-600 mt-6">Tip: replace the placeholder URLs with your official links if different.</p> -->
         </div>
     </section>
-
-    <!-- Social Media Section -->
-
-    <!-- <section id="social-media" class="py-16 bg-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8"></h2>
-            <div class="flex justify-center space-x-6">
-                <a href="#" class="text-gray-600 hover:text-primary-color transition-colors">
-                    <i data-lucide="linkedin" class="w-8 h-8"></i>
-                </a>
-                <a href="#" class="text-gray-600 hover:text-primary-color transition-colors">
-                    <i data-lucide="instagram" class="w-8 h-8"></i>
-                </a>
-                <a href="#" class="text-gray-600 hover:text-primary-color transition-colors">
-                    <i data-lucide="twitter" class="w-8 h-8"></i>
-                </a>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">

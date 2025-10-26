@@ -111,6 +111,7 @@ window.handleFormSubmit = async function(event) {
         fullName: form.fullName.value,
         email: form.email.value,
         mobile: form.mobile.value,
+        alternateMobile: form.alternateMobile ? form.alternateMobile.value : '',
         age: parseInt(form.age.value),
         qualification: form.qualification.value,
         currentStatus: form.currentStatus.value,
@@ -192,8 +193,8 @@ function setupServiceCardListeners() {
             const select = document.getElementById('consultationType');
             if (select) {
                 let value = '';
-                if (title.includes('webinar')) value = 'webinar';
-                else if (title.includes('on call')) value = 'oncall';
+                if (title.includes('webinar')) value = 'webinar (₹199)';
+                else if (title.includes('on call')) value = 'On Call Discussion (₹499)';
                 else if (title.includes('personal')) value = 'personal';
                 
                 select.value = value;
@@ -211,6 +212,24 @@ document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         }
         setupServiceCardListeners();
+
+        // Show/hide specificrequirement field based on consultationType
+        const consultationType = document.getElementById('consultationType');
+        const specificContainer = document.getElementById('specificrequirement-container');
+        const specificInput = document.getElementById('specificrequirement');
+        if (consultationType && specificContainer && specificInput) {
+            function updateSpecificRequirementVisibility() {
+                if (consultationType.value === 'personal') {
+                    specificContainer.classList.remove('hidden-field');
+                    specificInput.required = true;
+                } else {
+                    specificContainer.classList.add('hidden-field');
+                    specificInput.required = false;
+                }
+            }
+            consultationType.addEventListener('change', updateSpecificRequirementVisibility);
+            updateSpecificRequirementVisibility();
+        }
     } catch (e) {
         console.warn('initialization error', e);
     }
