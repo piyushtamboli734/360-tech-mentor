@@ -10,7 +10,7 @@ body {
 /* Custom gradient for the hero section, inspired by the image */
 .hero-bg {
     position: relative;
-    background-image: linear-gradient(180deg, rgba(30, 58, 138, 0.92), rgba(20, 40, 90, 0.7)), url('/final\ background.png');
+    background-image: linear-gradient(180deg, rgba(30, 58, 138, 0.92), rgba(20, 40, 90, 0.7)), url('./assets/final-background.png');
     background-size: cover;
     background-position: center;
     overflow: hidden;
