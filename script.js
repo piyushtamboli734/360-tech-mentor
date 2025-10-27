@@ -106,14 +106,14 @@ window.handleFormSubmit = async function (event) {
   // 🎯 FIX 1: Define the form element
   const form = event.target;
 
-    const consentCheckbox = document.getElementById("consentCheckbox");
+  const consentCheckbox = document.getElementById("consentCheckbox");
   if (!consentCheckbox.checked) {
-    statusMessage.textContent = "⚠️ Please agree to the consent before submitting.";
+    statusMessage.textContent =
+      "⚠️ Please agree to the consent before submitting.";
     statusMessage.classList.remove("hidden", "text-green-600");
     statusMessage.classList.add("text-red-600");
     return;
   }
-
 
   // Ensure you have elements for these messages in your HTML (e.g., <p id="status-message">)
   const statusMessage = document.getElementById("status-message");
@@ -244,6 +244,62 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.classList.remove("flex"); // Remove flex class to hide it properly
     });
   }
+});
+
+// --- Terms and Conditions Modal Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    // Get all necessary elements
+    const tncModal = document.getElementById('tnc-modal');
+    const tncLink = document.getElementById('tnc-link');
+    const tncCloseTop = document.getElementById('tnc-close-btn-top');
+    const tncCloseBottom = document.getElementById('tnc-close-btn-bottom');
+
+    // Function to open the modal
+    function openTNCModal(e) {
+        e.preventDefault(); // Stop the link from navigating
+        if (tncModal) {
+            tncModal.classList.remove('hidden');
+            tncModal.classList.add('flex');
+        }
+    }
+
+    // Function to close the modal
+    function closeTNCModal() {
+        if (tncModal) {
+            tncModal.classList.add('hidden');
+            tncModal.classList.remove('flex');
+        }
+    }
+
+    // 1. Open the modal when the footer link is clicked
+    if (tncLink) {
+        tncLink.addEventListener('click', openTNCModal);
+    }
+
+    // 2. Close the modal when the close buttons are clicked
+    if (tncCloseTop) {
+        tncCloseTop.addEventListener('click', closeTNCModal);
+    }
+    if (tncCloseBottom) {
+        tncCloseBottom.addEventListener('click', closeTNCModal);
+    }
+
+    // 3. Close the modal when the ESC key is pressed
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && tncModal && !tncModal.classList.contains('hidden')) {
+            closeTNCModal();
+        }
+    });
+
+    // 4. Close the modal when clicking outside of the content (on the overlay)
+    if (tncModal) {
+        tncModal.addEventListener('click', (e) => {
+            // Check if the click target is the modal container itself (not the content inside)
+            if (e.target === tncModal) {
+                closeTNCModal();
+            }
+        });
+    }
 });
 
 // Handle service card clicks to auto-fill form
