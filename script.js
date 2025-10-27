@@ -247,10 +247,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // --- Terms and Conditions Modal Logic ---
+// --- Terms and Conditions Modal Logic (REVISED) ---
 document.addEventListener('DOMContentLoaded', () => {
     // Get all necessary elements
     const tncModal = document.getElementById('tnc-modal');
-    const tncLink = document.getElementById('tnc-link');
+    
+    // 🎯 CRITICAL CHANGE: Use querySelectorAll to find ALL links with the CLASS
+    const tncLinks = document.querySelectorAll('.tnc-link-trigger'); 
+
     const tncCloseTop = document.getElementById('tnc-close-btn-top');
     const tncCloseBottom = document.getElementById('tnc-close-btn-bottom');
 
@@ -271,9 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 1. Open the modal when the footer link is clicked
-    if (tncLink) {
-        tncLink.addEventListener('click', openTNCModal);
+    // 1. Open the modal when ANY link with the class is clicked
+    if (tncLinks.length > 0) {
+        tncLinks.forEach(link => {
+            link.addEventListener('click', openTNCModal);
+        });
     }
 
     // 2. Close the modal when the close buttons are clicked
