@@ -102,10 +102,11 @@ try {
 // --- Form Submission Logic ---
 window.handleFormSubmit = async function (event) {
   event.preventDefault();
+  
 
   // 🎯 FIX 1: Define the form element
   const form = event.target;
-
+  const statusMessage = document.getElementById("status-message");
   const consentCheckbox = document.getElementById("consentCheckbox");
   if (!consentCheckbox.checked) {
     statusMessage.textContent =
@@ -116,7 +117,7 @@ window.handleFormSubmit = async function (event) {
   }
 
   // Ensure you have elements for these messages in your HTML (e.g., <p id="status-message">)
-  const statusMessage = document.getElementById("status-message");
+  
   const submitBtn = document.getElementById("submit-btn");
 
   if (!form.checkValidity()) {
@@ -135,7 +136,7 @@ window.handleFormSubmit = async function (event) {
     alternateMobile: form.alternateMobile ? form.alternateMobile.value : "",
     age: parseInt(form.age.value),
     qualification: form.qualification.value,
-    address: form.address ? form.address.value : "",
+    // address: form.address ? form.address.value : "",
     currentStatus: form.currentStatus.value,
     careerGoals: form.careerGoals.value,
     challenges: form.challenges.value,
@@ -155,8 +156,7 @@ window.handleFormSubmit = async function (event) {
     urlParams.append(key, payload[key]);
   }
 
-  const SHEET_URL =
-    "https://script.google.com/macros/s/AKfycbydS70WOjFhI9qb-q-65lyfMqsyo4niYq2GTkpcDQxafgWpZC8IYuuHiBtWUgvl-Ww5/exec";
+  const SHEET_URL ="https://script.google.com/macros/s/AKfycbydS70WOjFhI9qb-q-65lyfMqsyo4niYq2GTkpcDQxafgWpZC8IYuuHiBtWUgvl-Ww5/exec";
 
   submitBtn.disabled = true;
   submitBtn.textContent = "Submitting...";
