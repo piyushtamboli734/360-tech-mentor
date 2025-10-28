@@ -135,7 +135,7 @@ window.handleFormSubmit = async function (event) {
     alternateMobile: form.alternateMobile ? form.alternateMobile.value : "",
     age: parseInt(form.age.value),
     qualification: form.qualification.value,
-    Address: form.Address.value,
+    address: form.address ? form.address.value : "",
     currentStatus: form.currentStatus.value,
     careerGoals: form.careerGoals.value,
     challenges: form.challenges.value,
