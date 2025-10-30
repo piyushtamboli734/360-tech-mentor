@@ -1,5 +1,3 @@
-// Main module script for Consulting Landing Page
-// Imports
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import {
   getAuth,
@@ -99,6 +97,7 @@ try {
   enableForm();
 }
 
+
 // --- Form Submission Logic ---
 window.handleFormSubmit = async function (event) {
   event.preventDefault();
@@ -183,25 +182,7 @@ window.handleFormSubmit = async function (event) {
       throw new Error(sheetResult.error || "Google Sheets submission failed");
     }
 
-    // Optionally also store in Firestore if configured
-    if (db) {
-      try {
-        const collectionRef = collection(
-          db,
-          "artifacts",
-          appId,
-          "users",
-          userId || "anonymous",
-          "survey_submissions"
-        );
-        const docRef = await addDoc(collectionRef, payload);
-        console.log("Saved to Firestore with id:", docRef.id);
-      } catch (fsErr) {
-        console.warn("Firestore save failed (non-blocking):", fsErr);
-      }
-    }
-
-    // 🎯 NEW Success UI Block: Show the Modal
+    // Success UI Block: Show the Modal
     const successModal = document.getElementById("success-modal");
 
     if (successModal) {
@@ -233,7 +214,6 @@ window.handleFormSubmit = async function (event) {
 
 // --- Modal Close Logic ---
 document.addEventListener("DOMContentLoaded", () => {
-  // ... (rest of your DOMContentLoaded logic) ...
 
   // Add close listener for the new modal
   const modal = document.getElementById("success-modal");
@@ -248,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // --- Terms and Conditions Modal Logic ---
-// --- Terms and Conditions Modal Logic (REVISED) ---
 document.addEventListener('DOMContentLoaded', () => {
     // Get all necessary elements
     const tncModal = document.getElementById('tnc-modal');
@@ -309,25 +288,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Handle service card clicks to auto-fill form
+// Handle service card clicks
 function setupServiceCardListeners() {
   const cards = document.querySelectorAll(".card-shadow");
+  const formElement = document.getElementById("consultation-form");
+
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-      const title = card.querySelector("h3").textContent.toLowerCase();
-      const select = document.getElementById("consultationType");
-      if (select) {
-        let value = "";
-        if (title.includes("webinar")) value = "webinar (₹199)";
-        else if (title.includes("on call")) value = "On Call Discussion (₹499)";
-        else if (title.includes("personal")) value = "personal";
-
-        select.value = value;
-        // Smooth scroll to form
-        document
-          .getElementById("consultation-form")
-          .scrollIntoView({ behavior: "smooth" });
-      }
+      // Smooth scroll the form element into the user's view
+      formElement.scrollIntoView({ 
+        behavior: "smooth" ,
+        block: "start" // Scrolls to the top of the form section
+      });
     });
   });
 }
