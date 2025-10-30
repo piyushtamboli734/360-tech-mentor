@@ -97,7 +97,6 @@ try {
   enableForm();
 }
 
-
 // --- Form Submission Logic ---
 window.handleFormSubmit = async function (event) {
   event.preventDefault();
