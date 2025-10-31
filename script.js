@@ -213,17 +213,42 @@ window.handleFormSubmit = async function (event) {
 
 // --- Modal Close Logic ---
 document.addEventListener("DOMContentLoaded", () => {
+    // Get all elements needed for closing
+    const modal = document.getElementById("success-modal");
+    const crossCloseBtn = document.getElementById("cross-close-btn");
+    
+    // NOTE: We no longer use 'close-modal-btn' for closing, as it is a link.
+    // However, the existing variable 'closeBtn' might be in other parts of your script.
 
-  // Add close listener for the new modal
-  const modal = document.getElementById("success-modal");
-  const closeBtn = document.getElementById("close-modal-btn");
+    // Function to close the modal
+    const closeModal = () => {
+        if (modal) {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex"); 
+        }
+    };
 
-  if (closeBtn && modal) {
-    closeBtn.addEventListener("click", () => {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex"); // Remove flex class to hide it properly
+    // 1. Add listener for the new cross button
+    if (crossCloseBtn && modal) {
+        crossCloseBtn.addEventListener("click", closeModal);
+    }
+    
+    // 2. Optional: Close when clicking the overlay (outside the white box)
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            // Check if the click target is the modal container itself
+            if (e.target.id === 'success-modal') {
+                closeModal();
+            }
+        });
+    }
+
+    // 3. Optional: Close when pressing the ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
     });
-  }
 });
 
 // --- Terms and Conditions Modal Logic ---
