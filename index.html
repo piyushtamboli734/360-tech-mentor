@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Unlock your career potential with 360 Tech Mentor. Get personalized IT career guidance, expert consultation, and resume reviews.">
+  <meta name="description"
+    content="Unlock your career potential with 360 Tech Mentor. Get personalized IT career guidance, expert consultation, and resume reviews.">
   <title>360 Tech Mentor - Career Guidance & Consulting</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -20,7 +22,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8R4CMN3T1F"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-8R4CMN3T1F');
@@ -56,7 +58,7 @@
   </header>
 
   <!-- Services Section -->
-  <section id="services" class="py-5 bg-white">
+  <section id="services" class="py-4 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-2xl font-extrabold text-gray-900 text-center mb-6 font-medium">
         Our Pathways to Success
@@ -116,14 +118,63 @@
             </div>
           </div>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div id="webinar-card" 
+         class="bg-white p-6 rounded-xl card-shadow border-t-8 border-red-500 hover:shadow-2xl transition duration-300 md:col-span-3">
+        <div class="text-center">
+            <i data-lucide="calendar-check" class="w-10 h-10 sm:w-12 sm:h-12 text-red-500 mx-auto mb-4"></i>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                UPCOMING WEBINAR
+            </h3>
+            <p class="text-sm sm:text-base text-gray-500 mb-4 font-medium">
+                Our First Exclusive Session is on November 22, 2025
+            </p>
+
+            <div class="inline-block p-3 rounded-lg bg-gray-100 mb-4 shadow-inner">
+                <p id="current-date-display" class="text-sm text-gray-700 font-semibold">Today: Loading...</p>
+            </div>
+
+            <div id="countdown-timer" class="p-3 bg-red-100 border border-red-300 rounded-lg">
+                <p class="text-md font-semibold text-red-800 mb-2">
+                    Time Left To Attend:
+                </p>
+                <div class="flex justify-center space-x-2 text-red-700">
+                    <div class="flex flex-col items-center">
+                        <span id="days" class="text-3xl font-extrabold">00</span>
+                        <span class="text-xs uppercase">Days</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="hours" class="text-3xl font-extrabold">00</span>
+                        <span class="text-xs uppercase">Hours</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="minutes" class="text-3xl font-extrabold">00</span>
+                        <span class="text-xs uppercase">Mins</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="seconds" class="text-3xl font-extrabold">00</span>
+                        <span class="text-xs uppercase">Secs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#consultation-form"
+                class="mt-4 inline-block w-full px-4 py-2 text-base font-bold rounded-lg bg-red-500 text-white hover:bg-red-600 transition duration-300 transform hover:scale-[1.02] shadow-md">
+                Secure Your Spot (Fill Form)
+            </a>
+            
+        </div>
+    </div>
+</div>
       </div>
     </div>
   </section>
 
   <!-- Consultation Form Section -->
-  <section id="consultation-form" class="py-20 bg-gray-100">
+  <section id="consultation-form" class="py-8 bg-gray-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
+      <div class="text-center mb-6">
         <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary-color mb-3">
           Start Your Journey
         </h2>
@@ -189,8 +240,7 @@
             <label for="address" class="block text-lg font-medium text-gray-700 mb-2">What are you
               Address (तुमचा पत्ता?)
               <span class="text-red-500">*</span></label>
-            <textarea id="address" name="address"
-              placeholder="e.g., Nandurbar, Pune etc."
+            <textarea id="address" name="address" placeholder="e.g., Nandurbar, Pune etc."
               class="form-input min-h-[100px]" required></textarea>
           </div>
 
@@ -283,7 +333,7 @@
                 By submitting this form, you consent to the collection and use
                 of your information solely for your career enhancement and
                 mentorship purposes. Please review our
-                <a href="#"  class="tnc-link-trigger text-blue-600 hover:underline font-medium">Terms and Conditions</a>
+                <a href="#" class="tnc-link-trigger text-blue-600 hover:underline font-medium">Terms and Conditions</a>
                 before submitting.
               </label>
             </div>
@@ -303,56 +353,57 @@
         </form>
 
         <!-- success form -->
-        <div id="success-modal" class="fixed inset-0 bg-gray-600 bg-opacity-75 hidden flex items-center justify-center z-[100] p-4">
-    <div class="bg-white rounded-lg shadow-2xl max-w-sm w-full mx-auto p-6 relative"> 
-        
-        <button id="cross-close-btn" 
-                class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 focus:outline-none">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
+        <div id="success-modal"
+          class="fixed inset-0 bg-gray-600 bg-opacity-75 hidden flex items-center justify-center z-[100] p-4">
+          <div class="bg-white rounded-lg shadow-2xl max-w-sm w-full mx-auto p-6 relative">
 
-        <h2 class="text-2xl font-bold text-green-600 mb-4">Submission Successful!🎉</h2>
+            <button id="cross-close-btn"
+              class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 focus:outline-none">
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
 
-        <p class="mb-3">
-            🙏 धन्यवाद! 🙏
-        </p>
-        <p class="mb-4">
-            <b>आपण आमचा फॉर्म भरला याबद्दल मनःपूर्वक आभार!</b>
-        </p>
-        
-        <div class="space-y-3 text-sm text-gray-700">
-            <p>
+            <h2 class="text-2xl font-bold text-green-600 mb-4">Submission Successful!🎉</h2>
+
+            <p class="mb-3">
+              🙏 धन्यवाद! 🙏
+            </p>
+            <p class="mb-4">
+              <b>आपण आमचा फॉर्म भरला याबद्दल मनःपूर्वक आभार!</b>
+            </p>
+
+            <div class="space-y-3 text-sm text-gray-700">
+              <p>
                 आपली माहिती आम्हाला प्राप्त झाली आहे. लवकरच आमचा प्रतिनिधी आपल्याशी संपर्क साधेल. 📞
-            </p>
-            <p>
+              </p>
+              <p>
                 आपल्या करिअरला नवी दिशा देण्यासाठी आम्ही सदैव तयार आहोत! 🚀
-            </p>
-            <p>
+              </p>
+              <p>
                 <b>📲 पुढील माहिती आणि अपडेट्ससाठी आमचा
-                <a href="https://whatsapp.com/channel/0029Vb6up6AKGGGG0AJz5H2v" target="_blank" class="tnc-link-trigger text-blue-600 hover:underline font-medium">WhatsApp Channel</a> जॉइन करा!</b>
+                  <a href="https://whatsapp.com/channel/0029Vb6up6AKGGGG0AJz5H2v" target="_blank"
+                    class="tnc-link-trigger text-blue-600 hover:underline font-medium">WhatsApp Channel</a> जॉइन
+                  करा!</b>
                 तिथे तुम्हाला सर्व नवीन माहिती आणि करिअर गाईडन्स अपडेट्स मिळतील. 💡
-            </p>
-            <p class="text-center mt-3">✨ 360 Tech Mentor – तुमच्या भविष्याचा विश्वासू मार्गदर्शक ✨</p>
+              </p>
+              <p class="text-center mt-3">✨ 360 Tech Mentor – तुमच्या भविष्याचा विश्वासू मार्गदर्शक ✨</p>
+            </div>
+
+            <a id="close-modal-btn" href="https://whatsapp.com/channel/0029Vb6up6AKGGGG0AJz5H2v" target="_blank"
+              role="button"
+              class="mt-6 w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-150 text-center inline-block">
+              Join Channel
+            </a>
+          </div>
         </div>
-        
-        <a id="close-modal-btn"
-            href="https://whatsapp.com/channel/0029Vb6up6AKGGGG0AJz5H2v"
-            target="_blank"
-            role="button"
-            class="mt-6 w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-150 text-center inline-block">
-            Join Channel
-        </a>
-    </div>
-</div>
 
       </div>
     </div>
   </section>
 
   <!-- Core Team Section -->
-  <section id="core-team" class="py-20 bg-white">
+  <section id="core-team" class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-4xl font-extrabold text-gray-900 text-center mb-12 animate-fade-in">
         Meet Our Expert Mentors
@@ -434,22 +485,19 @@
         <div class="bg-white p-6 rounded-xl card-shadow hover:shadow-2xl transition duration-300 animate-slide-up"
           style="animation-delay: 400ms">
           <div class="text-center">
-                <p class="text-center text-xl font-medium text-gray-700 mb-6">
-                    Our Motive
-                </p>
-                <div class="w-full max-w-xs mx-auto">
-                    <video 
-                        id="unboxingVideo"
-                        controls 
-                        autoplay
-                        class="w-full h-auto object-cover rounded-lg border border-gray-200 shadow-xl"
-                        style="max-height: 80vh;">
-                        <!-- PLACEHOLDER SOURCE - REPLACE THIS WITH YOUR VIDEO'S PUBLIC URL -->
-                        <source src="/VN20251108_101310.mp4" type="video/mp4">
-                        <!-- Fallback message if video format is not supported -->
-                        Your browser does not support the video tag. Please ensure your video file is hosted correctly.
-                    </video>
-                </div>
+            <p class="text-center text-xl font-medium text-gray-700 mb-6">
+              Our Motive
+            </p>
+            <div class="w-full max-w-xs mx-auto">
+              <video id="unboxingVideo" controls autoplay
+                class="w-full h-auto object-cover rounded-lg border border-gray-200 shadow-xl"
+                style="max-height: 80vh;">
+                <!-- PLACEHOLDER SOURCE - REPLACE THIS WITH YOUR VIDEO'S PUBLIC URL -->
+                <source src="/VN20251108_101310.mp4" type="video/mp4">
+                <!-- Fallback message if video format is not supported -->
+                Your browser does not support the video tag. Please ensure your video file is hosted correctly.
+              </video>
+            </div>
           </div>
         </div>
       </div>
@@ -523,29 +571,31 @@
 
   <!-- footer -->
   <footer class="bg-gray-900 text-white py-4">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
 
-          <div class="text-sm text-gray-400">
-              <p class="mb-2">
-                  Disclaimer: This site uses cookies and similar technologies to ensure essential website functionality, analytics, and personalization in compliance with Indian law. Manage your preferences or read our Cookie Policy.
-              </p>
-              <p>
-                  Please review our 
-                  <a href="#"  class=" tnc-link-trigger text-blue-600 hover:underline font-medium">Terms and Conditions</a> 
-              </p>
-          </div>
+      <div class="text-sm text-gray-400">
+        <p class="mb-2">
+          Disclaimer: This site uses cookies and similar technologies to ensure essential website functionality,
+          analytics, and personalization in compliance with Indian law. Manage your preferences or read our Cookie
+          Policy.
+        </p>
+        <p>
+          Please review our
+          <a href="#" class=" tnc-link-trigger text-blue-600 hover:underline font-medium">Terms and Conditions</a>
+        </p>
       </div>
+    </div>
   </footer>
   <footer>
-      <div id="powered-by-bar" class="w-full p-0 bg-white text-black text-xs text-center shadow-lg border-t border-gray-300">
-          <a href="https://nandurbarig.com/" target="_blank" class="inline-flex items-center justify-center space-x-1 hover:text-gray-600 transition-colors">
-              <span class="font-bold">Powered by</span>
-              <img 
-                  src="/nandurbar_ig.png" 
-                  alt="Logo" 
-                  class="h-9 w-11 rounded-full object-contain align-middle bg-transparent">
-          </a>
-      </div>
+    <div id="powered-by-bar"
+      class="w-full p-0 bg-white text-black text-xs text-center shadow-lg border-t border-gray-300">
+      <a href="https://nandurbarig.com/" target="_blank"
+        class="inline-flex items-center justify-center space-x-1 hover:text-gray-600 transition-colors">
+        <span class="font-bold">Powered by</span>
+        <img src="/nandurbar_ig.png" alt="Logo"
+          class="h-9 w-11 rounded-full object-contain align-middle bg-transparent">
+      </a>
+    </div>
   </footer>
 
   <!-- T&C -->
@@ -753,7 +803,8 @@
 
         <div class="section-tnc">
           <h4 class="font-bold text-md">15. Contact Information</h4>
-          <p>For any queries, grievances, or requests, please contact: <br>📧 Email: 360techmentor@gmail.com <br>🌐 Website:
+          <p>For any queries, grievances, or requests, please contact: <br>📧 Email: 360techmentor@gmail.com <br>🌐
+            Website:
             https://360-tech-mentor.vercel.app <br>📍 Jurisdiction: Pune, Maharashtra, India</p>
         </div>
 
@@ -771,15 +822,84 @@
   </div>
 
   <!-- WHATSAPP BUTTON -->
-  <a href="https://wa.me/918237700779?text=Hello%20360%20TechMentor" 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       aria-label="Chat with us on WhatsApp">
-        <img src="/WhatsApp.svg.webp" 
-             alt="WhatsApp Logo" >
+  <a href="https://wa.me/918237700779?text=Hello%20360%20TechMentor" class="whatsapp-float" target="_blank"
+    rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <img src="/WhatsApp.svg.webp" alt="WhatsApp Logo">
   </a>
   <!-- Module script -->
+  <script>
+    /**
+ * Handles the countdown timer and current date display for the upcoming webinar.
+ */
+    function initializeWebinarCountdown() {
+      // 1. Setup Target Date
+      // The webinar is on November 22, 2025, at midnight local time
+      // NOTE: JavaScript months are 0-indexed (November is month 10)
+      const WEBINAR_DATE = new Date('November 22, 2025 00:00:00').getTime();
+
+      // 2. Get DOM Elements
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+      const dateDisplayEl = document.getElementById('current-date-display');
+      const countdownDiv = document.getElementById('countdown-timer');
+
+      // Helper function to format date
+      const formatDate = (date) => {
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString(undefined, options);
+      };
+
+      // 3. Update Calendar and Timer
+      function updateCountdown() {
+        const now = new Date();
+        const distance = WEBINAR_DATE - now.getTime();
+
+        // Update the current date display (Calendar)
+        if (dateDisplayEl) {
+          dateDisplayEl.textContent = `Today: ${formatDate(now)}`;
+        }
+
+        // If the countdown is finished
+        if (distance < 0) {
+          clearInterval(timerInterval);
+          if (countdownDiv) {
+            countdownDiv.innerHTML = '<h4 class="text-xl font-bold text-green-700">Webinar is Live! Join our WhatsApp Channel for the link!</h4>';
+          }
+          return;
+        }
+
+        // Time calculations
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display results, ensuring two digits for H/M/S
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+      }
+
+      // Run the update function every 1 second
+      const timerInterval = setInterval(updateCountdown, 1000);
+
+      // Run immediately on load
+      updateCountdown();
+    }
+
+    // 4. Call the new function when the DOM is ready (in your existing DOMContentLoaded listener)
+    document.addEventListener("DOMContentLoaded", () => {
+      // ... (Your existing code: lucide.createIcons(), setupServiceCardListeners(), etc.) ...
+
+      // ⭐ New: Initialize the countdown timer
+      initializeWebinarCountdown();
+
+      // ... (Rest of your existing DOMContentLoaded logic) ...
+    });
+  </script>
   <script type="module" src="script.js">
   </script>
 </body>
